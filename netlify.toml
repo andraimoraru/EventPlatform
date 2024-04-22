@@ -10,7 +10,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "http://localhost:9090/:splat"
+  to = ".netlify/netlify-functions/:splat"
   status = 200
   force = true  # This line is crucial as it tells Netlify to proxy the request instead of redirecting
 
