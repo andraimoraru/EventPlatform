@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+    border-color: grey;
+    background-color: #e5af38;
+}
+
+.nav-logo {
+    width: 200px;
+    height: 200px;
+}
+.nav-logo img {
+    margin: 10px 10px;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+}
+.nav-login {
+    display: flex;
+    align-items: last baseline;
+    align-content: center;
+    padding-bottom: 15px;
+    margin-right: 10px;
+}
+
+.nav-login button {
+    width: 160px;
+    height: 58px;
+    outline: none;
+    border: 2px solid #7a7a7a;
+    border-radius: 5%;
+    color:#9c6e13;
+    font-size: 20px;
+    font-weight: 600;
+    background: white;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+}
+

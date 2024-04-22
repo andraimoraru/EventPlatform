@@ -1,0 +1,43 @@
+.add-staff {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 50px;
+    margin: 20px 30px;
+    border-radius: 6px;
+    background: white;
+}
+
+.edit-staff-info {
+    display: flex;
+    width: 100%;
+    font-size: 18px;
+}
+
+.edit-staff-info input {
+    width: 50%;
+    font-size: 16px;
+    height: 40px;
+    color: grey;
+    margin: 20px 20px;
+}
+
+.edit-staff-info button {
+    margin-top: 20px;
+    width: 160px;
+    height: 50px;
+    border-radius: 6px;
+    background: #6079ff;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media(max-width:800) {
+    .add-staff {
+        width: auto;
+        padding: 30px;
+        margin: 20px;
+    }
+}
