@@ -10,7 +10,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "netlify-functions/:splat"
+  to = "https://checkmyevents.netlify.app/:splat"
   status = 200
   force = true  # This line is crucial as it tells Netlify to proxy the request instead of redirecting
 
@@ -18,3 +18,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/upload/"
+  to = "https://checkmyevents.netlify.app/upload/:splat"
+  status = 200
+  
