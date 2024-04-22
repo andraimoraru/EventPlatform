@@ -107,7 +107,7 @@ app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single('event'), (req,res) => {
     res.json({
         success: 1,
-        image_url: `/images/${req.file.filename}`
+        image_url: `https://checkmyevents.netlify.app/upload/images/${req.file.filename}`
     })
 })
 
