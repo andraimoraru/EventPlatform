@@ -31,7 +31,7 @@ app.patch('/users/:email/bookEvent', addBookedEventToUser);
 
 
 const corsOptions = {
-    origin: ['http://localhost:8888', 'http://localhost:5174'], 
+    origin: ['http://localhost:8888', 'http://localhost:5174','https://checkmyevents.netlify.app'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization',
     credentials: true,
@@ -107,7 +107,7 @@ app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single('event'), (req,res) => {
     res.json({
         success: 1,
-        image_url: `https://checkmyevents.netlify.app/redirect/images/${req.file.filename}`
+        image_url: `https://checkmyevents.netlify.app/images/${req.file.filename}`
     })
 })
 
