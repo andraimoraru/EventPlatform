@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "netlify-functions"
+
+[dev]
+  command = "npm run dev" 
+  targetPort = 5174       
+  port = 8888             
+
+[[redirects]]
+  from = "/api/*"
+  to = "http://localhost:9090/:splat"
+  status = 200
+  force = true  # This line is crucial as it tells Netlify to proxy the request instead of redirecting
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,16 @@
+.footer {
+    border: 1px solid;
+    border-color: grey;
+    align-items: center;
+    text-align: center;
+    background-color: #e5af38;
+}
+
+.footer h1 {
+    size: 20px;
+    color: #90630b;
+}
+
+.footer hr {
+    color: grey;
+}
