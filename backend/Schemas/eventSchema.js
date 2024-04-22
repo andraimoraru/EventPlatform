@@ -35,7 +35,7 @@ const Event = mongoose.model("Event", {
     },
     image: {
         type: String,
-        required: true,
+
     },
     category: {
         type: String,
