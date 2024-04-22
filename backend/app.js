@@ -93,7 +93,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect('http://localhost:8888/success');  // Assuming your frontend runs at port 8888
+        res.redirect('https://checkmyevents.netlify.app/success');  // Assuming your frontend runs at port 8888
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
@@ -107,7 +107,7 @@ app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single('event'), (req,res) => {
     res.json({
         success: 1,
-        image_url: `http://localhost:9090/images/${req.file.filename}`
+        image_url: `https://checkmyevents.netlify.app/redirect/images/${req.file.filename}`
     })
 })
 
