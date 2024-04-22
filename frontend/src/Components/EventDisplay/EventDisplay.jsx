@@ -28,7 +28,7 @@ export const EventDisplay = (event) => {
 
     const addToGoogleCalendar = async () => {
         const queryParams = new URLSearchParams(eventForCalendar).toString();  //Passing event as query parameter
-        window.location.href = `http://localhost:9090/auth?${queryParams}`;  
+        window.location.href = `https://checkmyevents.netlify.app/auth?${queryParams}`;  
     };
 
     const book_event = async (eventID) => {
