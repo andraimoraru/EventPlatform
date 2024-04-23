@@ -37,7 +37,7 @@ export const AddEvent= () => {
     let formData = new FormData();
     formData.append('event',image);
 
-    await fetch('/upload', {
+    await fetch('https://checkmyevents.netlify.app/upload', {
       method: 'POST',
       body:formData,
     }).then((data)=> { return responseData=data})

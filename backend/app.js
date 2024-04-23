@@ -93,7 +93,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect('/success');  // Assuming your frontend runs at port 8888
+        res.redirect('/success');  
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
