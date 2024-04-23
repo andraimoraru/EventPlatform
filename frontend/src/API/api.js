@@ -105,9 +105,9 @@ export const removeEvent = async (id) => {
 
 }
 
-export const upload = async () => {
+export const upload = async (file) => {
   try {
-    const response = await axios.upload(`${base_url}/events/${id}`);
+    const response = await axios.upload(`${base_url}/upload/${file}`);
     return response.data;
   } catch (error) {
     console.error("There was an error fetching the event:", error);

@@ -39,11 +39,8 @@ export const AddEvent= () => {
 
     await fetch('/upload', {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-      },
       body:formData,
-    }).then((resp) => resp.json()).then((data)=> { return responseData=data})
+    }).then((data)=> { return responseData=data})
 
     if (responseData.success) {
       event.image = responseData.image_url;
