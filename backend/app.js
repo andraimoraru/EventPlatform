@@ -23,6 +23,7 @@ app.get('/events', getAllEvents);
 app.get('/events/:eventID', getEventByID);
 app.get('/users/:email', getUserByEmail);
 app.post('/event', postEvent);
+app.post('/admin/addevent', postEvent);
 app.post('/user', postUser);
 app.post('/login', loginUser);
 app.patch('/users/:email', patchUser);
@@ -44,7 +45,7 @@ const upload = multer({storage:storage});
 
 
 const corsOptions = {
-    origin: ['http://localhost:8888', 'http://localhost:5175','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
+    origin: ['http://localhost:8888', 'http://localhost:5174','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,

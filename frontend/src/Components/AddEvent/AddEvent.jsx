@@ -3,9 +3,9 @@ import './AddEvent.css';
 import upload_area from '../Assets/assets/upload_area.svg'
 import { addEvent } from '../../API/api';
 
-export const AddEvent= () => {
+export const AddEvent = () => {
 
-  const [image, setImage] = useState(false);
+  const [imageToUpload, setImageToUpload] = useState(false);
   const [eventDetails, setEventDetails] = useState({
     title: "",
     description: "",
@@ -22,7 +22,7 @@ export const AddEvent= () => {
 
   const imageHandler = (e) => {
     console.log(e.target.files[0])
-    setImage(e.target.files[0]);
+    setImageToUpload(e.target.files[0]);
   }
 
   const changeHandler = (e) => {
@@ -32,31 +32,55 @@ export const AddEvent= () => {
 
   const Add_Event = async () => {
 
+    console.log('sunt in functie!!!')
     let event = eventDetails;
+    console.log(event)
 
     let formData = new FormData();
-    formData.append('event',image);
+    console.log(imageToUpload);
+    formData.append('event',imageToUpload);
 
-    const response = await fetch('https://events-sihs.onrender.com/upload', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-    });
+  //   const response = await fetch('https://events-sihs.onrender.com/upload', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //     },
+  //     body: formData,
+  // }).catch(error => console.error('Error fetching:', error));
+  
+  // if (!response.ok) {
+  //     console.error('Failed to upload:', response.statusText);
+  //     return;
+  // }
+  
+  // const responseData = await response.json();
+  // console.log(responseData);
 
-    const responseData = await response.json();
-    
-    console.log(responseData);
+
+  //   if (responseData.success) {
+  //     event.image = responseData.image_url;
+  //     console.log(event)
+  //     await addEvent(event).then((res) => {
+  //       res.status === 201 ?                         
+  //                          window.location.replace("/events")
+  //                          : alert("Failed to add event")})
+  //   } else {
+  //     event.image = "";
+  //     console.log(event)
+  //     await addEvent(event).then((res) => {
+  //       res.status === 201 ?                         
+  //                          window.location.replace("/events")
+  //                          : alert("Failed to add event")})
+  //   };
 
 
-    if (responseData.success) {
-      event.image = responseData.image_url;
-      await addEvent(event).then((res) => {
+    event.image = "";
+    console.log(event);
+    await addEvent(event).then((res) => {
+        console.log(res);
         res.status === 201 ?                         
                            window.location.replace("/events")
                            : alert("Failed to add event")})
-    }
   }
 
   return (
@@ -108,11 +132,11 @@ export const AddEvent= () => {
       </div>
       <div className="addeventt-eventfield">
         <label htmlFor="file-input">
-             <img src={image ? URL.createObjectURL(image) : upload_area} className='addevent-thumbnail-img' alt="" />
+             <img src={imageToUpload ? URL.createObjectURL(imageToUpload) : upload_area} className='addevent-thumbnail-img' alt="" />
         </label>  
         <input onChange={imageHandler} type="file" name='image' id='file-input' hidden/>      
       </div>
-      <button onClick={() => {Add_Event()}} className="addevent-btn">ADD</button>
+      <button onClick={() => {console.log(eventDetails);  Add_Event()}} className="addevent-btn">ADD</button>
     </div>
   )
 }
