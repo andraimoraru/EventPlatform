@@ -49,6 +49,10 @@
         height: 90%;
         margin: 20px;
     }
+    .nav-login button {
+        width: 140px;
+        height: 48px;        
+    }
 }
 @media(max-width:1024px) {
     .navbar {
@@ -58,6 +62,10 @@
         width: 80%;
         height: 80%;
         margin: 20px;
+    }
+    .nav-login button {
+        width: 130px;
+        height: 40px;        
     }
 }
 
@@ -71,6 +79,10 @@
         height: 70%;
         margin: 20px;
     }
+    .nav-login button {
+        width: 130px;
+        height: 40px;        
+    }
 }
 
 @media(max-width: 500px){
@@ -81,5 +93,9 @@
         width: 60%;
         height: 60%;
         margin: 10px;
+    }
+    .nav-login button {
+        width: 120px;
+        height: 40px;        
     }
 }
