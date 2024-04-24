@@ -19,7 +19,7 @@ export const Navbar = () => {
                 <>
                     {user.isStaff ? (
                         <>
-                            <Link to="/admin"><button>Admin Dashboard</button></Link>
+                            <Link to="/admin"><button>Admin</button></Link>
                         </>
                     ) : (
                         <Link to="/account"><button>Account</button></Link>
