@@ -85,9 +85,12 @@ export const updateStaff = async (email, property) => {
 }
 
 export const addEvent = async (event) => {
+  console.log(event);
   try {
     const response = await axios.post(`${base_url}/event`, event);
-    return response.data;
+      console.log(response.data);  
+      return response.data;
+
   } catch (error) {
     console.error("There was an error fetching the event:", error);
     throw error;
@@ -105,12 +108,3 @@ export const removeEvent = async (id) => {
 
 }
 
-export const upload = async (file) => {
-  try {
-    const response = await axios.upload(`${base_url}/upload/${file}`);
-    return response.data;
-  } catch (error) {
-    console.error("There was an error fetching the event:", error);
-    throw error;
-  }
-}

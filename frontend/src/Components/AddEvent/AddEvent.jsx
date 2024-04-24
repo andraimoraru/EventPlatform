@@ -21,6 +21,7 @@ export const AddEvent= () => {
   })
 
   const imageHandler = (e) => {
+    console.log(e.target.files[0])
     setImage(e.target.files[0]);
   }
 
@@ -31,16 +32,23 @@ export const AddEvent= () => {
 
   const Add_Event = async () => {
 
-    let responseData;
     let event = eventDetails;
 
     let formData = new FormData();
     formData.append('event',image);
 
-    await fetch('https://checkmyevents.netlify.app/upload', {
-      method: 'POST',
-      body:formData,
-    }).then((data)=> { return responseData=data})
+    const response = await fetch('https://events-sihs.onrender.com/upload', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+    });
+
+    const responseData = await response.json();
+    
+    console.log(responseData);
+
 
     if (responseData.success) {
       event.image = responseData.image_url;
@@ -104,7 +112,7 @@ export const AddEvent= () => {
         </label>  
         <input onChange={imageHandler} type="file" name='image' id='file-input' hidden/>      
       </div>
-      <button onClick={()=>{Add_Event()}} className="addevent-btn">ADD</button>
+      <button onClick={() => {Add_Event()}} className="addevent-btn">ADD</button>
     </div>
   )
 }

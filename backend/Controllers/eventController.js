@@ -18,6 +18,7 @@ exports.postEvent = (req, res, next) => {
         } else id = 1;
         return id;
     }).then((id) => {
+        console.log(req.body.image);
         const event = {
             id: id,
             title: req.body.title,

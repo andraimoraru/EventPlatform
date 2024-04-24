@@ -8,11 +8,7 @@
   targetPort = 5174       
   port = 8888             
 
-[[redirects]]
-  from = "/api/*"
-  to = "https://checkmyevents.netlify.app/:splat"
-  status = 200
-  force = true  # This line is crucial as it tells Netlify to proxy the request instead of redirecting
+
 
 [[redirects]]
   from = "/*"
@@ -20,7 +16,7 @@
   status = 200
 
 [[redirects]]
-  from = "/upload/"
-  to = "https://checkmyevents.netlify.app/upload/:splat"
+  from = "/upload"
+  to = "https://events-sihs.onrender.com/upload/:splat"
   status = 200
   

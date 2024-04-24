@@ -6,10 +6,10 @@ const { handle404, handle500 } = require('./Controllers/errorController');
 const { getAllUsers, postUser, getUserByEmail, loginUser, patchUser, addBookedEventToUser } = require('./Controllers/userController');
 const { getAllEvents, postEvent, getEventByID, deleteEventByID } = require('./Controllers/eventController');
 const { port = 9090 } = process.env;
-const upload = require('./upload');
 const { google } = require('googleapis');
 require('dotenv').config();
-
+const multer = require("multer");
+const path = require("path");
 
 const app = express();
 
@@ -30,10 +30,23 @@ app.delete('/events/:eventID', deleteEventByID);
 app.patch('/users/:email/bookEvent', addBookedEventToUser);
 
 
+
+// Image storage engine
+
+const storage = multer.diskStorage({
+    destination: 'upload/images',
+    filename: (req, file, cb) => {
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({storage:storage});
+
+
 const corsOptions = {
-    origin: ['http://localhost:8888', 'http://localhost:5174','https://checkmyevents.netlify.app'], 
+    origin: ['http://localhost:8888', 'http://localhost:5175','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type,Authorization',
+    allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,
     optionsSuccessStatus: 200
 };
@@ -104,13 +117,16 @@ app.get('/redirect', async (req, res) => {
 
 app.use('/images', express.static('upload/images'));
 
-app.post("/upload", upload.single('event'), (req,res) => {
-    res.json({
-        success: 1,
-        image_url: `/upload/images/${req.file.filename}`
-    })
-
-})
+app.post("/upload", upload.single('event'), (req, res) => {
+    if (req.file) {
+        res.json({
+            success: 1,
+            image_url: `https://events-sihs.onrender.com/images/${req.file.filename}`
+        });
+    } else {
+        res.status(400).json({ success: 0, message: "No file uploaded." });
+    }
+});
 
 
 app.use(handle404)

@@ -11,7 +11,6 @@ export const EventDisplay = (event) => {
     const [isBooked, setIsBooked] = useState(false);
    
 
-
         useEffect(() => {
             const eventAlreadyBooked = user.eventData?.some(e => e.eventID === event.id);
             setIsBooked(eventAlreadyBooked);
@@ -27,8 +26,8 @@ export const EventDisplay = (event) => {
     };
 
     const addToGoogleCalendar = async () => {
-        const queryParams = new URLSearchParams(eventForCalendar).toString();  //Passing event as query parameter
-        window.location.href = `https://checkmyevents.netlify.app/auth?${queryParams}`;  
+        const queryParams = new URLSearchParams(eventForCalendar).toString();  
+        window.location.href = `/auth?${queryParams}`;  
     };
 
     const book_event = async (eventID) => {
