@@ -23,9 +23,10 @@
     margin: 20px;
 }
 
-.event_title {
-    font-size: 20px;
+.event_title h1 {
+    font-size: 40px;
     color: #5d2e15;
+    font-weight: 600;
 }
 
 .event_details {
@@ -82,15 +83,17 @@
     .eventdisplay {
         margin:0px 60px;
     }
+    .event_title h1 {
+        font-size: 30px;
+        color: #5d2e15;
+        font-weight: 600;
+    }
     .image {
         width: auto;
         height: 510px
     }
     .eventdisplay-right {
         margin: 0px 30px;
-    }
-    .eventdisplay-right h1 {
-        font-size: 22px;
     }
 
     .event-description {
@@ -107,11 +110,13 @@
     .eventdisplay {
         margin:0px 30px;
     }
+    .event_title h1 {
+        font-size: 30px;
+        color: #5d2e15;
+        font-weight: 600;
+    }
     .image {
         height: 300px
-    }
-    .eventdisplay-right h1 {
-        font-size: 18px;
     }
     .event-description {
         font-size: 12px;
@@ -131,8 +136,10 @@
     .image {
         height: 300px;
     }
-    .eventdisplay-right h1 {
-        font-size: 14px;
+    .event_title h1 {
+        font-size: 20px;
+        color: #5d2e15;
+        font-weight: 600;
     }
     .event-description {
         font-size: 10px;
@@ -148,22 +155,20 @@
        flex-direction: column;
     }
     .image {
-        height: 330px;
+        height: 250px;
     }
-    .eventdisplay-right {
-        margin: 5px;
-    }
-    .eventdisplay-right h1 {
-        margin-top: 15px;
-        font-size: 20px;
-        font-weight: 500;
+    .event_title h1 {
+        font-size: 30px;
+        color: #5d2e15;
+        font-weight: 600;
+        align-content: center;
     }
     .event-description {
         font-size: 10px;
     }
     .eventdisplay-right button {
-        width: 130px;
-        font-size: 15px;
+        width: 190px;
+        font-size: 17px;
         padding: 12px 0px;
     }
 }
