@@ -45,7 +45,7 @@ const upload = multer({storage:storage});
 
 
 const corsOptions = {
-    origin: ['http://localhost:5174','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
+    origin: ['https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,
@@ -75,7 +75,7 @@ app.get('/auth', (req, res) => {
     req.session.eventForCalendar = req.query;
 
     const url = OAuth2Client.generateAuthUrl({
-        access_type: 'offline',
+        access_type: 'online',
         scope: 'https://www.googleapis.com/auth/calendar',
         prompt: 'consent',
         state: JSON.stringify({ event: req.query }) //  Pass event as state
@@ -107,7 +107,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect('/success');  
+        res.redirect('https://checkmyevents.netlify.app/success');  //frontend
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
