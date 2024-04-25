@@ -45,7 +45,7 @@ const upload = multer({storage:storage});
 
 
 const corsOptions = {
-    origin: ['https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
+    origin: ['http://localhost:5174','http://localhost:9090','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,
@@ -107,7 +107,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect('https://checkmyevents.netlify.app/success');  //frontend
+        res.redirect('http://localhost:5174/success');  //frontend
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
@@ -122,7 +122,7 @@ app.post("/upload", upload.single('event'), (req, res) => {
     if (req.file) {
         res.json({
             success: 1,
-            image_url: `https://events-sihs.onrender.com/images/${req.file.filename}`
+            image_url: `http://localhost:9090/images/${req.file.filename}`
         });
     } else {
         res.status(400).json({ success: 0, message: "No file uploaded." });

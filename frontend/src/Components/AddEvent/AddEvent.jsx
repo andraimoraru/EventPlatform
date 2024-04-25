@@ -37,42 +37,42 @@ export const AddEvent = () => {
     let formData = new FormData();
     formData.append('event',imageToUpload);
 
-  //   const response = await fetch('https://events-sihs.onrender.com/upload', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json',
-  //     },
-  //     body: formData,
-  // }).catch(error => console.error('Error fetching:', error));
+    const response = await fetch('http://localhost:9090/upload', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+      body: formData,
+  }).catch(error => console.error('Error fetching:', error));
   
-  // if (!response.ok) {
-  //     console.error('Failed to upload:', response.statusText);
-  //     return;
-  // }
+  if (!response.ok) {
+      console.error('Failed to upload:', response.statusText);
+      return;
+  }
   
-  // const responseData = await response.json();
-  // console.log(responseData);
+  const responseData = await response.json();
+  console.log(responseData);
 
 
-  //   if (responseData.success) {
-  //     event.image = responseData.image_url;
-  //     console.log(event)
-  //     await addEvent(event).then((res) => {
-  //       res.status === 201 ?                         
-  //                          window.location.replace("/events")
-  //                          : alert("Failed to add event")})
-  //   } else {
-  //     event.image = "";
-  //     console.log(event)
-  //     await addEvent(event).then((res) => {
-  //       res.status === 201 ?                         
-  //                          window.location.replace("/events")
-  //                          : alert("Failed to add event")})
-  //   };
+    if (responseData.success) {
+      event.image = responseData.image_url;
+      console.log(event)
+      await addEvent(event).then((res) => {
+        res.status === 201 ?                         
+                           window.location.replace("/events")
+                           : alert("Failed to add event")})
+    } else {
+      event.image = "";
+      console.log(event)
+      await addEvent(event).then((res) => {
+        res.status === 201 ?                         
+                           window.location.replace("/events")
+                           : alert("Failed to add event")})
+    };
 
 
-    event.image = "";
-    console.log(event);
+    // event.image = "";
+    // console.log(event);
     await addEvent(event).then((res) => {
         console.log(res);
         res.status === 201 ?                         

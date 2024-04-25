@@ -27,7 +27,7 @@ export const EventDisplay = (event) => {
 
     const addToGoogleCalendar = async () => {
         const queryParams = new URLSearchParams(eventForCalendar).toString();  
-        window.location.href = `/auth?${queryParams}`;  
+        window.location.href = `http://localhost:9090/auth?${queryParams}`;  //backend
     };
 
     const book_event = async (eventID) => {
@@ -58,7 +58,7 @@ export const EventDisplay = (event) => {
                         {!isBooked ?    (
                                             <button onClick={() => book_event(event.id)}>Book your place now</button>
                                         ) : (
-                                            <button onClick={addToGoogleCalendar}>Add to Google Calendar</button>
+                                            <button onClick={addToGoogleCalendar }>Add to Google Calendar</button>
                                         )}
                     </div>
                 </div>
