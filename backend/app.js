@@ -45,7 +45,7 @@ const upload = multer({storage:storage});
 
 
 const corsOptions = {
-    origin: ['http://localhost:8888', 'http://localhost:5174','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
+    origin: ['http://localhost:5174','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,

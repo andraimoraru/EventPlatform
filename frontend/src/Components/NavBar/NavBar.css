@@ -7,13 +7,13 @@
 }
 
 .nav-logo {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 }
 .nav-logo img {
-    margin: 10px 10px;
-    width: 90%;
-    height: 90%;
+    margin: 20px 20px;
+    width: 70%;
+    height: 70%;
     border-radius: 5px;
 }
 .nav-login {
@@ -59,8 +59,8 @@
         padding: 12px 30px;
     }
     .nav-logo img {
-        width: 80%;
-        height: 80%;
+        width: 70%;
+        height: 70%;
         margin: 20px;
     }
     .nav-login button {
@@ -72,6 +72,8 @@
 
 @media(max-width: 800px){
     .navbar {
+        display:flex;
+        flex-direction: column;
         padding: 10px 0px;
     }
     .nav-logo img {
@@ -87,15 +89,13 @@
 
 @media(max-width: 500px){
     .navbar {
-        width: 8px 0px;
+        display:flex;
+        flex-direction: column;
+        padding: 10px 0px;
     }
-    .nav-logo img {
-        width: 60%;
-        height: 60%;
-        margin: 10px;
-    }
+
     .nav-login button {
-        width: 120px;
+        width: 100px;
         height: 40px;        
     }
 }

@@ -32,12 +32,9 @@ export const AddEvent = () => {
 
   const Add_Event = async () => {
 
-    console.log('sunt in functie!!!')
     let event = eventDetails;
-    console.log(event)
 
     let formData = new FormData();
-    console.log(imageToUpload);
     formData.append('event',imageToUpload);
 
   //   const response = await fetch('https://events-sihs.onrender.com/upload', {
