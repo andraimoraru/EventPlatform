@@ -67,7 +67,7 @@ app.use(session({
   secret: process.env.CLIENT_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true, httpOnly: true } 
+  cookie: { secure: false } 
 }));
 
 app.get('/auth', (req, res) => {
