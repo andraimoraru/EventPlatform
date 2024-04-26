@@ -108,3 +108,15 @@ export const removeEvent = async (id) => {
 
 }
 
+export const auth = async () => {
+  try {
+    const response = await axios.get(`${base_url}/auth`);
+    return response.data;
+  } catch (error) {
+    console.error("There was an error fetching the event:", error);
+    throw error;
+  }
+
+}
+
+

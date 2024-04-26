@@ -8,8 +8,8 @@ const { getAllEvents, postEvent, getEventByID, deleteEventByID } = require('./Co
 const { port = 9090 } = process.env;
 const { google } = require('googleapis');
 require('dotenv').config();
-const multer = require("multer");
-const path = require("path");
+// const multer = require("multer");
+// const path = require("path");
 
 const app = express();
 
@@ -34,14 +34,14 @@ app.patch('/users/:email/bookEvent', addBookedEventToUser);
 
 // Image storage engine
 
-const storage = multer.diskStorage({
-    destination: 'upload/images',
-    filename: (req, file, cb) => {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: 'upload/images',
+//     filename: (req, file, cb) => {
+//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//     }
+// })
 
-const upload = multer({storage:storage});
+// const upload = multer({storage:storage});
 
 
 const corsOptions = {
@@ -75,7 +75,7 @@ app.get('/auth', (req, res) => {
     req.session.eventForCalendar = req.query;
 
     const url = OAuth2Client.generateAuthUrl({
-        access_type: 'online',
+        access_type: 'offline',
         scope: 'https://www.googleapis.com/auth/calendar',
         prompt: 'consent',
         state: JSON.stringify({ event: req.query }) //  Pass event as state
@@ -107,7 +107,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect('http://localhost:5174/success');  //frontend
+        res.redirect(`${process.env.DATABASE_URL}/success`);  //frontend
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
@@ -116,18 +116,18 @@ app.get('/redirect', async (req, res) => {
 
 
 
-app.use('/images', express.static('upload/images'));
+// app.use('/images', express.static('upload/images'));
 
-app.post("/upload", upload.single('event'), (req, res) => {
-    if (req.file) {
-        res.json({
-            success: 1,
-            image_url: `http://localhost:9090/images/${req.file.filename}`
-        });
-    } else {
-        res.status(400).json({ success: 0, message: "No file uploaded." });
-    }
-});
+// app.post("/upload", upload.single('event'), (req, res) => {
+//     if (req.file) {
+//         res.json({
+//             success: 1,
+//             image_url: `http://localhost:9090/images/${req.file.filename}`
+//         });
+//     } else {
+//         res.status(400).json({ success: 0, message: "No file uploaded." });
+//     }
+// });
 
 
 app.use(handle404)

@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import './AddEvent.css';
-import upload_area from '../Assets/assets/upload_area.svg'
 import { addEvent } from '../../API/api';
 
 export const AddEvent = () => {
 
-  const [imageToUpload, setImageToUpload] = useState(false);
   const [eventDetails, setEventDetails] = useState({
     title: "",
     description: "",
@@ -16,14 +14,14 @@ export const AddEvent = () => {
     price: "",
     category: "Art",
     url: "",
+    image: "",
     slots: "",
     attendees: [],
   })
 
-  const imageHandler = (e) => {
-    console.log(e.target.files[0])
-    setImageToUpload(e.target.files[0]);
-  }
+  // const imageHandler = (e) => {
+  //   setImageToUpload(e.target.files[0]);
+  // }
 
   const changeHandler = (e) => {
     e.preventDefault();
@@ -32,49 +30,43 @@ export const AddEvent = () => {
 
   const Add_Event = async () => {
 
-    let event = eventDetails;
+  // let event = eventDetails;
 
-    let formData = new FormData();
-    formData.append('event',imageToUpload);
+  //   let formData = new FormData();
+  //   formData.append('event',imageToUpload);
 
-    const response = await fetch('http://localhost:9090/upload', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-      },
-      body: formData,
-  }).catch(error => console.error('Error fetching:', error));
+  //   const response = await fetch('http://localhost:9090/upload', {
+  //     method: 'POST',
+  //     headers: {
+  //       Accept: 'application/json',
+  //     },
+  //     body: formData,
+  // }).catch(error => console.error('Error fetching:', error));
   
-  if (!response.ok) {
-      console.error('Failed to upload:', response.statusText);
-      return;
-  }
+  // if (!response.ok) {
+  //     console.error('Failed to upload:', response.statusText);
+  //     return;
+  // }
   
-  const responseData = await response.json();
-  console.log(responseData);
+  // const responseData = await response.json();
 
+  //   if (responseData.success) {
+  //     event.image = responseData.image_url;
+  //     console.log(event)
+  //     await addEvent(event).then((res) => {
+  //       res.status === 201 ?                         
+  //                          window.location.replace("/events")
+  //                          : alert("Failed to add event")})
+  //   } else {
+  //     event.image = "";
+  //     console.log(event)
+  //     await addEvent(event).then((res) => {
+  //       res.status === 201 ?                         
+  //                          window.location.replace("/events")
+  //                          : alert("Failed to add event")})
+  //   };
 
-    if (responseData.success) {
-      event.image = responseData.image_url;
-      console.log(event)
-      await addEvent(event).then((res) => {
-        res.status === 201 ?                         
-                           window.location.replace("/events")
-                           : alert("Failed to add event")})
-    } else {
-      event.image = "";
-      console.log(event)
-      await addEvent(event).then((res) => {
-        res.status === 201 ?                         
-                           window.location.replace("/events")
-                           : alert("Failed to add event")})
-    };
-
-
-    // event.image = "";
-    // console.log(event);
-    await addEvent(event).then((res) => {
-        console.log(res);
+    await addEvent(eventDetails).then((res) => {
         res.status === 201 ?                         
                            window.location.replace("/events")
                            : alert("Failed to add event")})
@@ -127,13 +119,17 @@ export const AddEvent = () => {
           <option value="theatre">Theatre</option>
         </select>
       </div>
-      <div className="addeventt-eventfield">
+      <div className="addevent-eventfield">
+          <p>Image URL</p>
+          <input type="text" value={eventDetails.image}  onChange={changeHandler} name='image' placeholder='Insert an url with the event image here'/>
+      </div>
+      {/* <div className="addeventt-eventfield">
         <label htmlFor="file-input">
              <img src={imageToUpload ? URL.createObjectURL(imageToUpload) : upload_area} className='addevent-thumbnail-img' alt="" />
         </label>  
         <input onChange={imageHandler} type="file" name='image' id='file-input' hidden/>      
-      </div>
-      <button onClick={() => {console.log(eventDetails);  Add_Event()}} className="addevent-btn">ADD</button>
+      </div> */}
+      <button onClick={Add_Event} className="addevent-btn">ADD</button>
     </div>
   )
 }
