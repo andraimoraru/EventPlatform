@@ -25,7 +25,7 @@ export const EventDisplay = (event) => {
         endDateTime: event.date_end,
     };
 
-    const addToGoogleCalendar = async () => {
+    const addToGoogleCalendar = () => {
         const queryParams = new URLSearchParams(eventForCalendar).toString();  
         window.location.href = `https://events-sihs.onrender.com/auth?${queryParams}`;  //backend
     };

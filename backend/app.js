@@ -45,7 +45,7 @@ app.patch('/users/:email/bookEvent', addBookedEventToUser);
 
 
 const corsOptions = {
-    origin: ['https://checkmyevents.netlify.app'], 
+    origin: ['https://checkmyevents.netlify.app', "https://events-sihs.onrender.com"], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,
