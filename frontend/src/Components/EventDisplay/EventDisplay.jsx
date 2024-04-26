@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './EventDisplay.css';
 import { UserContext } from '../../Context/UserContext';
-import {  updateBooking } from '../../API/api';
+import {  authGoogle, updateBooking } from '../../API/api';
 
 
 
@@ -27,7 +27,7 @@ export const EventDisplay = (event) => {
 
     const addToGoogleCalendar = async () => {
         const queryParams = new URLSearchParams(eventForCalendar).toString();  
-        window.location.href = `/auth?${queryParams}`;  //backend
+        authGoogle(queryParams);  //backend
     };
 
     const book_event = async (eventID) => {

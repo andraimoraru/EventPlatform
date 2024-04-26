@@ -67,18 +67,20 @@ app.use(session({
   secret: process.env.CLIENT_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } 
+  cookie: { secure: true, httpOnly: true } 
 }));
 
 app.get('/auth', (req, res) => {
     // Assuming event details are passed as query parameters for simplicity
     req.session.eventForCalendar = req.query;
+    console.log(req.query);
 
     const url = OAuth2Client.generateAuthUrl({
         access_type: 'offline',
         scope: 'https://www.googleapis.com/auth/calendar',
         prompt: 'consent',
-        state: JSON.stringify({ event: req.query }) //  Pass event as state
+        state: JSON.stringify({ event: req.query }),  //  Pass event as state
+        redirect_uri: process.env.REDIRECT 
     });
     res.redirect(url);
 });
