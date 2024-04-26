@@ -108,7 +108,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect(`https://checkmyevents.netlify.app/success`);  //frontend
+        res.redirect(`/success`);  //frontend
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
