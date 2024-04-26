@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './EventDisplay.css';
 import { UserContext } from '../../Context/UserContext';
-import {  authGoogle, updateBooking } from '../../API/api';
+import {  updateBooking } from '../../API/api';
 
 
 
@@ -27,7 +27,7 @@ export const EventDisplay = (event) => {
 
     const addToGoogleCalendar = async () => {
         const queryParams = new URLSearchParams(eventForCalendar).toString();  
-        authGoogle(queryParams);  //backend
+        window.location.href = `https://events-sihs.onrender.com/auth?${queryParams}`;  //backend
     };
 
     const book_event = async (eventID) => {

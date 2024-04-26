@@ -108,16 +108,5 @@ export const removeEvent = async (id) => {
 
 }
 
-export const authGoogle = async (queryParams) => {
-  console.log(queryParams);
-  try {
-    const response = await axios.get(`${base_url}/auth?${queryParams}`);
-    return response.data;
-  } catch (error) {
-    console.error("There was an error fetching the event:", error);
-    throw error;
-  }
-
-}
 
 

@@ -45,7 +45,7 @@ app.patch('/users/:email/bookEvent', addBookedEventToUser);
 
 
 const corsOptions = {
-    origin: ['http://localhost:5174','http://localhost:9090','https://checkmyevents.netlify.app', 'https://events-sihs.onrender.com'], 
+    origin: ['https://checkmyevents.netlify.app'], 
     methods: 'GET,POST,PATCH,DELETE,OPTIONS',
     allowedHeaders: 'Content-Type,Authorization, Access-Control-Allow-Origin',
     credentials: true,
@@ -80,7 +80,6 @@ app.get('/auth', (req, res) => {
         scope: 'https://www.googleapis.com/auth/calendar',
         prompt: 'consent',
         state: JSON.stringify({ event: req.query }),  //  Pass event as state
-        redirect_uri: process.env.REDIRECT 
     });
     res.redirect(url);
 });
@@ -109,7 +108,7 @@ app.get('/redirect', async (req, res) => {
             calendarId: 'primary',
             resource: eventToAdd,
         });
-        res.redirect(`${process.env.DATABASE_URL}/success`);  //frontend
+        res.redirect(`https://checkmyevents.netlify.app/success`);  //frontend
     } catch (error) {
         console.error('Failed to exchange code for tokens:', error);
         res.status(500).send('Authentication failed');
