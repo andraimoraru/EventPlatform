@@ -17,29 +17,33 @@ View all events - soon I will update with an API endpoint with all available end
 
 <br />
 
-# Local Setup:
+## Local Setup:
 
 Prerequisites
 
 • Node.js installed 
 
 Clone this repository into your local device
+
 ```
 git clone https://github.com/andraimoraru/EventPlatform.git
 ```
 
 Go to the frontend directory
+
 ```
 cd frontend
 ```
 
 Install dependencies:
+
 ```
 npm install
 ```
 
 
 Start the app:
+
 ```
 npm run dev
 ```
