@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './EventDisplay.css';
 import { UserContext } from '../../Context/UserContext';
 import {  updateBooking } from '../../API/api';
+require("dotenv").config();
 
 
 
