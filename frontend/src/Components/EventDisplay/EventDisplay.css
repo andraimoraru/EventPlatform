@@ -1,14 +1,15 @@
 .eventdisplay {
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin: 10px;
     border: 1px solid #f3e9e9;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .eventdisplay-left {
     display: flex;
-    margin: 20px;
+    margin: 10px;
 }
 
 .image {
@@ -20,19 +21,18 @@
 .eventdisplay-right {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 10px;
 }
 
 .event_title h1 {
-    font-size: 40px;
+    font-size: 30px;
     color: #5d2e15;
     font-weight: 600;
 }
 
 .event_details {
-    margin: 20px;
     display: flex;
-    margin-top: 25px;
+    margin-top: 10px;
     color: #373636;
     font-size: 20px;
     font-weight: 600;
@@ -40,24 +40,24 @@
 }
 
 .eventlocation {
-    margin: 20px;
+    margin: 1%;
 }
 
 .eventstart {
-    margin: 20px;
+    margin: 10px;
 }
 
 .eventend {
-    margin: 20px;
+    margin: 10px;
 }
 
 .eventprice {
-    margin: 20px 70px;
-    size: 20px;
+    margin: 10px 60px;
+    size: 10px;
 }
 .event-description {
     text-align: center;
-    margin: 20px;
+    margin: 10px;
     color: #373636;
     font-size: 14px;
     font-weight: 600;
@@ -72,7 +72,7 @@
     font-weight: 600;
     color: white;
     background: #e56622;
-    margin-bottom: 40px;
+    margin: 40px;
     border: 1px solid #090000;
     outline: none;
     cursor: pointer;
@@ -81,48 +81,74 @@
 
 @media(max-width:1280px) {
     .eventdisplay {
-        margin:0px 60px;
+        margin:10px 10px;
     }
     .event_title h1 {
-        font-size: 30px;
+        font-size: 26px;
         color: #5d2e15;
         font-weight: 600;
     }
     .image {
-        width: auto;
-        height: 400px
+        width: 90%;
+        height: 90%;
     }
     .eventdisplay-right {
-        margin: 0px 30px;
+        margin: 10px 30px;
     }
-
-    .event-description {
-        font-size: 13px;
+    .eventprice {
+        margin: 0px 90px;
+        font-size: 14px;
     }
-    .eventdisplay-right button {
-        width: 150px;
-        padding: 15px 0px;
-        margin-bottom: 20px;
+    .eventlocation {
+        font-size: 14px;
     }
-}
-
-@media(max-width:1024px) {
-    .eventdisplay {
-        margin:0px 30px;
-    }
-    .event_title h1 {
-        font-size: 30px;
-        color: #5d2e15;
-        font-weight: 600;
-    }
-    .image {
-        height: 250px
+    .eventstart {
+        font-size: 14px;
+    }   
+    .eventend {
+        font-size: 14px;
     }
     .event-description {
         font-size: 12px;
     }
     .eventdisplay-right button {
-        width: 120px;
+        width: 300px;
+        padding: 15px 0px;
+        margin: 10px 10px;
+    }
+}
+
+@media(max-width:1024px) {
+    .eventdisplay {
+        margin:10px 10px;
+    }
+    .event_title h1 {
+        font-size: 20px;
+        color: #5d2e15;
+        font-weight: 600;
+    }
+    .image {
+        height: 90%;
+        width: 90%;
+    }
+    .event-description {
+        font-size: 10px;
+    }
+    .eventprice {
+        margin: 0px 100px;
+        font-size: 14px;
+    }
+    .eventlocation {
+        font-size: 14px;
+    }
+    .eventstart {
+        font-size: 14px;
+    }   
+    .eventend {
+        font-size: 14px;
+    }
+    .eventdisplay-right button {
+        width: 350px;
         padding: 10px 0px;
         margin-bottom: 10px;
         font-size: 14px;
@@ -132,10 +158,11 @@
 @media(max-width:800px) {
     .eventdisplay {
         flex-direction: column;
-        margin:0px 10px;
+        margin:10px 10px;
     }
     .image {
-        height: 300px;
+        width: 90%;
+        height: 90%;
     }
     .event_title h1 {
         font-size: 20px;
@@ -145,32 +172,60 @@
     .event-description {
         font-size: 10px;
     }
+    .eventprice {
+        margin: 10px 60px;
+        font-size: 14px;
+    }
+    .eventlocation {
+        font-size: 14px;
+    }
+    .eventstart {
+        font-size: 14px;
+    }   
+    .eventend {
+        font-size: 14px;
+    }
     .eventdisplay-right button {
-        width: 100px;
-        font-size: 12px;
+        width: 400px;
+        font-size: 16px;
     }
 }
 
 @media(max-width:500px) {
     .eventdisplay {
        flex-direction: column;
+       font-size: 15px;
     }
     .image {
-        height: 200px;
+        width: 90%;
+        height: 90%;
     }
     .event_title h1 {
-        font-size: 30px;
+        font-size: 16px;
         color: #5d2e15;
         font-weight: 600;
-        align-content: center;
+    }
+    .eventprice {
+        margin: 20px 90px;
+        font-size: 12px;
+    }
+    .eventlocation {
+        margin: 20px 0px 0px 0px;
+        font-size: 12px;
+    }
+    .eventstart {
+        font-size: 12px;
+    }
+    
+    .eventend {
+        font-size: 12px;
     }
     .event-description {
-        font-size: 10px;
+        font-size: 6px;
     }
     .eventdisplay-right button {
-        width: 190px;
-        font-size: 17px;
-        padding: 12px 0px;
+        width: 300px;
+        font-size: 14px;
     }
 }
 
