@@ -13,17 +13,25 @@
 .event-details {
     display: flex;
     gap: 20px;
+    margin: 10px;
+    margin-bottom: 20px;
 }
 
 .event-location {
     color: #374151;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
+}
+.event-title {
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px;
 }
 
 .event-price {
-    color: #8c8c8c;
-    font-size: 18px;
+    color: #4e3d3d;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -43,18 +51,30 @@
     .event-price {
         font-size: 14px;
     }
+    .event-title {
+        font-size: 14px;
+    }
+    .event-location {
+        font-size: 14px;
+    }
 }
 
 @media(max-width: 1024px) {
     .event {
         width: 170px;
-        font-size: 13px;
+        font-size: 12px;
     }
     .event img {
         width: 170px;
     }
     .event-price {
-        font-size: 13px;
+        font-size: 12px;
+    }
+    .event-title {
+        font-size: 12px;
+    }
+    .event-location {
+        font-size: 12px;
     }
 }
 
@@ -67,15 +87,21 @@
         width: 120px;
     }
     .event-price {
-        font-size: 12px;
+        font-size: 10px;
+    }
+    .event-title {
+        font-size: 10px;
+    }
+    .event-location {
+        font-size: 10px;
     }
 }
 
 @media(max-width: 500px) {
     .event {
-        width: 160px;
+        width: 140px;
     }
     .event img {
-        width: 160px;
+        width: 140px;
     }
 }
