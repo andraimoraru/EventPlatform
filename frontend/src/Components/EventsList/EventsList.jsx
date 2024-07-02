@@ -13,7 +13,6 @@ export const EventsList = () => {
 
 
   useEffect(() => {
-    setIsLoading(true);
     fetchEvents().then((events) => {setAllEvents(events)})
     setIsLoading(false);
   }, []);
