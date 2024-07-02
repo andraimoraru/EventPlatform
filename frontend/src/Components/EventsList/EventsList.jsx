@@ -9,7 +9,7 @@ export const EventsList = () => {
 
   const { user } = useContext(UserContext);
   const [allEvents, setAllEvents] = useState([]);
-  const  [isLoading, setIsLoading] = useState(false);
+  const  [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
