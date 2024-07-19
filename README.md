@@ -12,7 +12,7 @@ To see the admin features use the login details:
 
 ```
 email address: admin@admin.com 
-password: admin123. 
+password: admin123
 ```
 <br />
 
